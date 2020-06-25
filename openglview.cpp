@@ -44,7 +44,7 @@ void OpenGLView::drawInput()
     if(currentPoints != nullptr){
         glPointSize(10.0f);
         glLineWidth(10.0f);
-        glColor3f(0.0, 1.0, 0.0);
+        glColor3f(0.0f, 1.0f, 0.0f);
         for(auto set: *sets){
             glBegin(GL_LINE_STRIP);
              for(auto p: *set){
@@ -52,7 +52,6 @@ void OpenGLView::drawInput()
              }
             glEnd();
         }
-
     }
 }
 
@@ -100,4 +99,10 @@ void OpenGLView::drawGrid()
         c += COLUMN_WIDTH;
     }
     glEnd();
+}
+
+OpenGLView::~OpenGLView()
+{
+    delete currentPoints;
+    delete sets;
 }

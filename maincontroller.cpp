@@ -24,3 +24,9 @@ void MainController::train()
     dataManager->save(perceptron->getWeights());
 }
 
+MainController::~MainController()
+{
+    delete dataManager;
+    delete perceptron;
+    delete view;
+}

@@ -7,6 +7,7 @@ class MainController
 {
 public:
     MainController(View* view, DataManager* dataManager, Perceptron* perceptron);
+    ~MainController();
 
     void predict(QSet<Point> *points);
 

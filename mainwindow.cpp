@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
         controller->train();
     });
     connect(ui->btnDetect, &QPushButton::clicked, this, [=]{
-        controller->predict(ui->openGLView->points());
+        controller->predict(ui->openGLView->collectPoints());
     });
     inject();
 }

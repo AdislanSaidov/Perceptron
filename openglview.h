@@ -9,13 +9,19 @@ class OpenGLView : public QOpenGLWidget, protected QOpenGLFunctions
 {
 public:
     OpenGLView(QWidget *parent);
-
-
+    ~OpenGLView();
 
     void clear();
-    QSet<Point>* points()
+
+    QSet<Point>* collectPoints()
     {
-        return currentPoints;
+        auto points = new QSet<Point>;
+        for(auto set: *sets){
+           for(auto point: set->values()){
+               *points << point;
+           }
+        }
+        return points;
     }
 
 
@@ -32,7 +38,6 @@ private:
     int height;
     QSet<Point>* currentPoints;
     QList<QSet<Point>*>* sets;
-    int x = 300, y = 300;
 
     void drawGrid();
     void drawInput();
