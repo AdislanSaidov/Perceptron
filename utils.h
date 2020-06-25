@@ -21,9 +21,6 @@ static QList<Cell> reduce(QList<Cell> &cells){
         }
         ++it;
     }
-    qDebug() << "---------------";
-    qDebug() << resultCells;
-    qDebug() << "---------------";
     return resultCells;
 }
 
@@ -39,20 +36,15 @@ static QList<Cell> convertPointsToCells(const QSet<Point>* points){
             bool isXinRange = start <= p.x && p.x < end;
 
             if(isXinRange){
-                //                qDebug() << "X" << i << " a: " << x1 << " b: " << x2 ;
                 xp = i;
             }
             bool isYinRange = start <= p.y && p.y < end;
             if(isYinRange){
-                //                qDebug() << "Y" << i << " a: " << x1 << " b: " << x2 ;
                 yp = i;
             }
         }
         cells << Cell(xp, yp);
     }
-    //    foreach (auto cell, cells) {
-    //        qDebug() <<"Cell: x: "<< cell.x <<"y: "<< cell.y;
-    //    }
     return reduce(cells);
 }
 
