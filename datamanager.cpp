@@ -22,7 +22,7 @@ void DataManager::save(float* weights)
     qDebug() << "SAVING END";
 
     auto dirPath = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
-    auto filePath = dirPath + QDir::separator() + FILE_PATH;
+    auto filePath = dirPath + QDir::separator() + SAVE_FILE_NAME;
     if(!QDir().exists(dirPath)){
         QDir().mkpath(dirPath);
     }
@@ -35,7 +35,7 @@ void DataManager::save(float* weights)
 
 float* DataManager::read()
 {
-    auto path = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation)+ QDir::separator() + FILE_PATH;
+    auto path = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation)+ QDir::separator() + SAVE_FILE_NAME;
     qDebug() << path;
     float *weights = new float[CELL_COUNT];
     QFile jsonFile(path);

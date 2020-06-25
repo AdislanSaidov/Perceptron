@@ -10,7 +10,5 @@ public:
     void save(float* weights);
     bool read(float* weights);
     float* read();
-private:
-
 
 };

@@ -28,7 +28,7 @@ void Perceptron::initWeights(float * weights)
 bool Perceptron::predict(int* inputs)
 {
     this->inputs = inputs;
-    int sum = computeScalar() + TRESHOLD;
+    int sum = computeDotProduct() + BIAS;
     int activation = activate(sum);
     qDebug() << sum << " SUM";
     qDebug() << activation << " activation " << (activation == 1);
@@ -38,7 +38,7 @@ bool Perceptron::predict(int* inputs)
 //training the network
 void Perceptron::train()
 {
-    float sum = computeScalar() + TRESHOLD;
+    float sum = computeDotProduct() + BIAS;
 
     int activation = activate(sum);
     for(int i = 0; i < CELL_COUNT; ++i){
@@ -57,7 +57,7 @@ void Perceptron::train()
 }
 
 //computing dot product between weights and inputs
-float Perceptron::computeScalar()
+float Perceptron::computeDotProduct()
 {
     float sum = 0.0f;
     for(int i = 0; i < CELL_COUNT; ++i){

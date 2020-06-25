@@ -18,6 +18,6 @@ private:
     float* weights = nullptr;
     int* inputs = nullptr;
 
-    float computeScalar();
+    float computeDotProduct();
     int activate(float sum);
 };
