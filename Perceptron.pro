@@ -12,7 +12,8 @@ SOURCES += \
     maincontroller.cpp \
     mainwindow.cpp \
     openglview.cpp \
-    perceptron.cpp
+    perceptron.cpp \
+    utils.cpp
 
 HEADERS += \
     maincontroller.h \

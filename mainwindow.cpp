@@ -37,6 +37,7 @@ void MainWindow::showPrediction(QString prediction)
 
 MainWindow::~MainWindow()
 {
+    delete controller;
     delete ui;
 }
 

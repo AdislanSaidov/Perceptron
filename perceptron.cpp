@@ -16,7 +16,7 @@ void Perceptron::initWeights(float * weights)
         float f = 1.0f/(float)(2*CELL_COUNT); // [-1/2n; 1/2n]
         int x = f*100000;
         for(int i = 0; i < CELL_COUNT; ++i){
-            int y = randomBetween(-x,x);
+            int y = utils::randomBetween(-x,x);
             this->weights[i] = (float)y/100000;
             qDebug() << "generated: " << (float)y/100000 << " y" << y;
         }

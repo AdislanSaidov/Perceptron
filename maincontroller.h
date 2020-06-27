@@ -16,8 +16,9 @@ public:
 
 
 private:
+    View* view;
     DataManager* dataManager;
     Perceptron* perceptron;
-    View* view;
+
 
 };

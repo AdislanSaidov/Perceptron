@@ -1,19 +1,19 @@
 #include "maincontroller.h"
 #include "utils.h"
 
-MainController::MainController(View *view, DataManager *dataManager, Perceptron *perceptron):
+MainController::MainController(View *view, DataManager *dataManager, Perceptron *classifier):
     view(view),
     dataManager(dataManager),
-    perceptron(perceptron)
+    perceptron(classifier)
 {
     auto weights = dataManager->read();
-    perceptron->initWeights(weights);
+    classifier->initWeights(weights);
 }
 
 void MainController::predict(QSet<Point>* points)
 {
-    QList<Cell> cells = convertPointsToCells(points);
-    auto inputs = flatMatrix(cells);
+    QList<Cell> cells = utils::convertPointsToCells(points);
+    auto inputs = utils::flatMatrix(cells);
     auto prediction = perceptron->predict(inputs);
     view->showPrediction((prediction == 1) ? "Yes" : "No");
 }
@@ -28,5 +28,4 @@ MainController::~MainController()
 {
     delete dataManager;
     delete perceptron;
-    delete view;
 }
